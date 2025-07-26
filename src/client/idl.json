@@ -1,0 +1,1452 @@
+{
+    "address": "3disS3DbsgoLYWnCEUesoVdKQUaMF7EHsQ3m4L8nrhPw",
+    "metadata": {
+        "name": "fosho_program",
+        "version": "0.1.0",
+        "spec": "0.1.0",
+        "description": "Created with Anchor"
+    },
+    "instructions": [
+        {
+            "name": "cancel_commit",
+            "discriminator": [158, 121, 111, 125, 253, 235, 148, 78],
+            "accounts": [
+                {
+                    "name": "event",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event.nonce",
+                                "account": "Event"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "community",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    99, 111, 109, 109, 117, 110, 105, 116, 121
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community.seed",
+                                "account": "Community"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "event_collection",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event"
+                            },
+                            {
+                                "kind": "const",
+                                "value": [
+                                    99, 111, 108, 108, 101, 99, 116, 105, 111,
+                                    110
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "attendee",
+                    "writable": true,
+                    "signer": true
+                },
+                {
+                    "name": "ticket",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "attendee"
+                            },
+                            {
+                                "kind": "const",
+                                "value": [116, 105, 99, 107, 101, 116]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                },
+                {
+                    "name": "mpl_core_program",
+                    "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+                }
+            ],
+            "args": []
+        },
+        {
+            "name": "cancel_event",
+            "discriminator": [55, 143, 36, 45, 59, 241, 89, 119],
+            "accounts": [
+                {
+                    "name": "event",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event.nonce",
+                                "account": "Event"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "community",
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    99, 111, 109, 109, 117, 110, 105, 116, 121
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community.seed",
+                                "account": "Community"
+                            }
+                        ]
+                    },
+                    "relations": ["event"]
+                },
+                {
+                    "name": "authority",
+                    "writable": true,
+                    "signer": true,
+                    "relations": ["community"]
+                },
+                {
+                    "name": "reward_mint",
+                    "optional": true
+                },
+                {
+                    "name": "reward_account",
+                    "writable": true,
+                    "optional": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "account",
+                                "path": "event"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "token_program"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "reward_mint"
+                            }
+                        ],
+                        "program": {
+                            "kind": "const",
+                            "value": [
+                                140, 151, 37, 143, 78, 36, 137, 241, 187, 61,
+                                16, 41, 20, 142, 13, 131, 11, 90, 19, 153, 218,
+                                255, 16, 132, 4, 142, 123, 216, 219, 233, 248,
+                                89
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "sender_account",
+                    "writable": true,
+                    "optional": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "account",
+                                "path": "authority"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "token_program"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "reward_mint"
+                            }
+                        ],
+                        "program": {
+                            "kind": "const",
+                            "value": [
+                                140, 151, 37, 143, 78, 36, 137, 241, 187, 61,
+                                16, 41, 20, 142, 13, 131, 11, 90, 19, 153, 218,
+                                255, 16, 132, 4, 142, 123, 216, 219, 233, 248,
+                                89
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "token_program"
+                },
+                {
+                    "name": "associated_token_program",
+                    "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                }
+            ],
+            "args": []
+        },
+        {
+            "name": "claim_rewards",
+            "discriminator": [4, 144, 132, 71, 116, 23, 151, 80],
+            "accounts": [
+                {
+                    "name": "config",
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [99, 111, 110, 102, 105, 103]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "event",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event.nonce",
+                                "account": "Event"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "community",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    99, 111, 109, 109, 117, 110, 105, 116, 121
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community.seed",
+                                "account": "Community"
+                            }
+                        ]
+                    },
+                    "relations": ["event"]
+                },
+                {
+                    "name": "reward_mint",
+                    "optional": true
+                },
+                {
+                    "name": "reward_account",
+                    "writable": true,
+                    "optional": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "account",
+                                "path": "event"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "token_program"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "reward_mint"
+                            }
+                        ],
+                        "program": {
+                            "kind": "const",
+                            "value": [
+                                140, 151, 37, 143, 78, 36, 137, 241, 187, 61,
+                                16, 41, 20, 142, 13, 131, 11, 90, 19, 153, 218,
+                                255, 16, 132, 4, 142, 123, 216, 219, 233, 248,
+                                89
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "receiver_account",
+                    "writable": true,
+                    "optional": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "account",
+                                "path": "claimer"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "token_program"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "reward_mint"
+                            }
+                        ],
+                        "program": {
+                            "kind": "const",
+                            "value": [
+                                140, 151, 37, 143, 78, 36, 137, 241, 187, 61,
+                                16, 41, 20, 142, 13, 131, 11, 90, 19, 153, 218,
+                                255, 16, 132, 4, 142, 123, 216, 219, 233, 248,
+                                89
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "event_collection",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event"
+                            },
+                            {
+                                "kind": "const",
+                                "value": [
+                                    99, 111, 108, 108, 101, 99, 116, 105, 111,
+                                    110
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "ticket",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "attendee"
+                            },
+                            {
+                                "kind": "const",
+                                "value": [116, 105, 99, 107, 101, 116]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "attendee",
+                    "signer": true
+                },
+                {
+                    "name": "claimer",
+                    "writable": true,
+                    "signer": true
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                },
+                {
+                    "name": "token_program"
+                },
+                {
+                    "name": "associated_token_program",
+                    "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+                },
+                {
+                    "name": "mpl_core_program",
+                    "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+                }
+            ],
+            "args": []
+        },
+        {
+            "name": "create_community",
+            "discriminator": [203, 214, 176, 194, 13, 207, 22, 60],
+            "accounts": [
+                {
+                    "name": "community",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    99, 111, 109, 109, 117, 110, 105, 116, 121
+                                ]
+                            },
+                            {
+                                "kind": "arg",
+                                "path": "seed"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "payer",
+                    "writable": true,
+                    "signer": true
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                }
+            ],
+            "args": [
+                {
+                    "name": "seed",
+                    "type": "pubkey"
+                },
+                {
+                    "name": "community_name",
+                    "type": "string"
+                },
+                {
+                    "name": "community_uri",
+                    "type": "string"
+                },
+                {
+                    "name": "authority",
+                    "type": "pubkey"
+                },
+                {
+                    "name": "approvers",
+                    "type": {
+                        "vec": "pubkey"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "create_config",
+            "discriminator": [201, 207, 243, 114, 75, 111, 47, 189],
+            "accounts": [
+                {
+                    "name": "config",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [99, 111, 110, 102, 105, 103]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "payer",
+                    "writable": true,
+                    "signer": true
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                }
+            ],
+            "args": [
+                {
+                    "name": "owner",
+                    "type": "pubkey"
+                }
+            ]
+        },
+        {
+            "name": "create_event",
+            "discriminator": [49, 219, 29, 203, 22, 98, 100, 87],
+            "accounts": [
+                {
+                    "name": "event",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community.events_count",
+                                "account": "Community"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "event_collection",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event"
+                            },
+                            {
+                                "kind": "const",
+                                "value": [
+                                    99, 111, 108, 108, 101, 99, 116, 105, 111,
+                                    110
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "community",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    99, 111, 109, 109, 117, 110, 105, 116, 121
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community.seed",
+                                "account": "Community"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "reward_mint",
+                    "optional": true
+                },
+                {
+                    "name": "reward_account",
+                    "writable": true,
+                    "optional": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "account",
+                                "path": "event"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "token_program"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "reward_mint"
+                            }
+                        ],
+                        "program": {
+                            "kind": "const",
+                            "value": [
+                                140, 151, 37, 143, 78, 36, 137, 241, 187, 61,
+                                16, 41, 20, 142, 13, 131, 11, 90, 19, 153, 218,
+                                255, 16, 132, 4, 142, 123, 216, 219, 233, 248,
+                                89
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "sender_account",
+                    "writable": true,
+                    "optional": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "account",
+                                "path": "authority"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "token_program"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "reward_mint"
+                            }
+                        ],
+                        "program": {
+                            "kind": "const",
+                            "value": [
+                                140, 151, 37, 143, 78, 36, 137, 241, 187, 61,
+                                16, 41, 20, 142, 13, 131, 11, 90, 19, 153, 218,
+                                255, 16, 132, 4, 142, 123, 216, 219, 233, 248,
+                                89
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "authority",
+                    "writable": true,
+                    "signer": true,
+                    "relations": ["community"]
+                },
+                {
+                    "name": "token_program"
+                },
+                {
+                    "name": "associated_token_program",
+                    "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                },
+                {
+                    "name": "mpl_core_program",
+                    "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+                }
+            ],
+            "args": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "uri",
+                    "type": "string"
+                },
+                {
+                    "name": "event_type",
+                    "type": {
+                        "defined": {
+                            "name": "EventType"
+                        }
+                    }
+                },
+                {
+                    "name": "commitment_fee",
+                    "type": "u64"
+                },
+                {
+                    "name": "reward_per_user",
+                    "type": "u64"
+                },
+                {
+                    "name": "event_starts_at",
+                    "type": "i64"
+                },
+                {
+                    "name": "event_ends_at",
+                    "type": "i64"
+                },
+                {
+                    "name": "registration_starts_at",
+                    "type": {
+                        "option": "i64"
+                    }
+                },
+                {
+                    "name": "registration_ends_at",
+                    "type": "i64"
+                },
+                {
+                    "name": "approver",
+                    "type": {
+                        "option": "pubkey"
+                    }
+                },
+                {
+                    "name": "capacity",
+                    "type": {
+                        "option": "u32"
+                    }
+                },
+                {
+                    "name": "organizer",
+                    "type": {
+                        "option": "string"
+                    }
+                },
+                {
+                    "name": "location",
+                    "type": {
+                        "option": "string"
+                    }
+                },
+                {
+                    "name": "virtual_link",
+                    "type": {
+                        "option": "string"
+                    }
+                },
+                {
+                    "name": "description",
+                    "type": {
+                        "option": "string"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "join_event",
+            "discriminator": [10, 93, 234, 137, 237, 194, 224, 0],
+            "accounts": [
+                {
+                    "name": "event",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event.nonce",
+                                "account": "Event"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "community",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    99, 111, 109, 109, 117, 110, 105, 116, 121
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community.seed",
+                                "account": "Community"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "event_collection",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event"
+                            },
+                            {
+                                "kind": "const",
+                                "value": [
+                                    99, 111, 108, 108, 101, 99, 116, 105, 111,
+                                    110
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "attendee",
+                    "writable": true,
+                    "signer": true
+                },
+                {
+                    "name": "ticket",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "attendee"
+                            },
+                            {
+                                "kind": "const",
+                                "value": [116, 105, 99, 107, 101, 116]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                },
+                {
+                    "name": "mpl_core_program",
+                    "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+                }
+            ],
+            "args": []
+        },
+        {
+            "name": "verify_attendee",
+            "discriminator": [135, 180, 176, 53, 172, 153, 216, 151],
+            "accounts": [
+                {
+                    "name": "event",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event.nonce",
+                                "account": "Event"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "community",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    99, 111, 109, 109, 117, 110, 105, 116, 121
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community.seed",
+                                "account": "Community"
+                            }
+                        ]
+                    },
+                    "relations": ["event"]
+                },
+                {
+                    "name": "event_collection",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event"
+                            },
+                            {
+                                "kind": "const",
+                                "value": [
+                                    99, 111, 108, 108, 101, 99, 116, 105, 111,
+                                    110
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "ticket",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "owner"
+                            },
+                            {
+                                "kind": "const",
+                                "value": [116, 105, 99, 107, 101, 116]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                },
+                {
+                    "name": "owner",
+                    "writable": true
+                },
+                {
+                    "name": "approver",
+                    "writable": true,
+                    "signer": true
+                },
+                {
+                    "name": "mpl_core_program",
+                    "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+                }
+            ],
+            "args": [
+                {
+                    "name": "set_state",
+                    "type": {
+                        "defined": {
+                            "name": "TicketState"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "withdraw_excess_rewards",
+            "discriminator": [70, 247, 92, 254, 85, 7, 73, 118],
+            "accounts": [
+                {
+                    "name": "event",
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event.nonce",
+                                "account": "Event"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "event_collection",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [101, 118, 101, 110, 116]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "event"
+                            },
+                            {
+                                "kind": "const",
+                                "value": [
+                                    99, 111, 108, 108, 101, 99, 116, 105, 111,
+                                    110
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "community",
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    99, 111, 109, 109, 117, 110, 105, 116, 121
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "community.seed",
+                                "account": "Community"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "reward_mint"
+                },
+                {
+                    "name": "reward_account",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "account",
+                                "path": "event"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "token_program"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "reward_mint"
+                            }
+                        ],
+                        "program": {
+                            "kind": "const",
+                            "value": [
+                                140, 151, 37, 143, 78, 36, 137, 241, 187, 61,
+                                16, 41, 20, 142, 13, 131, 11, 90, 19, 153, 218,
+                                255, 16, 132, 4, 142, 123, 216, 219, 233, 248,
+                                89
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "receiver_account",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "account",
+                                "path": "authority"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "token_program"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "reward_mint"
+                            }
+                        ],
+                        "program": {
+                            "kind": "const",
+                            "value": [
+                                140, 151, 37, 143, 78, 36, 137, 241, 187, 61,
+                                16, 41, 20, 142, 13, 131, 11, 90, 19, 153, 218,
+                                255, 16, 132, 4, 142, 123, 216, 219, 233, 248,
+                                89
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "authority",
+                    "writable": true,
+                    "signer": true,
+                    "relations": ["community"]
+                },
+                {
+                    "name": "token_program"
+                },
+                {
+                    "name": "associated_token_program",
+                    "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                }
+            ],
+            "args": []
+        }
+    ],
+    "accounts": [
+        {
+            "name": "Community",
+            "discriminator": [192, 73, 211, 158, 178, 81, 19, 112]
+        },
+        {
+            "name": "Config",
+            "discriminator": [155, 12, 170, 224, 30, 250, 204, 130]
+        },
+        {
+            "name": "Event",
+            "discriminator": [125, 192, 125, 158, 9, 115, 152, 233]
+        }
+    ],
+    "errors": [
+        {
+            "code": 6000,
+            "name": "InvalidRegistrationEndTime",
+            "msg": "Registration end time invalid"
+        },
+        {
+            "code": 6001,
+            "name": "InvalidRegistrationStartTime",
+            "msg": "Registration start time invalid"
+        },
+        {
+            "code": 6002,
+            "name": "InvalidStringLength",
+            "msg": "String length exceeds maximum allowed length"
+        },
+        {
+            "code": 6003,
+            "name": "InvalidTimeRange",
+            "msg": "Calling instruction during invalid time range"
+        },
+        {
+            "code": 6004,
+            "name": "InvalidEventStartTime",
+            "msg": "The event must start in a future."
+        },
+        {
+            "code": 6005,
+            "name": "MaximumTicketsReached",
+            "msg": "The maximum number of tickets has been reached"
+        },
+        {
+            "code": 6006,
+            "name": "AttendeeStatusNotPending",
+            "msg": "The commitment can only be cancelled in the pending status"
+        },
+        {
+            "code": 6007,
+            "name": "InvalidClaimer",
+            "msg": "Not a valid claimer"
+        },
+        {
+            "code": 6008,
+            "name": "AccountNotProvided",
+            "msg": "One of the accounts required for this ix is not provided"
+        },
+        {
+            "code": 6009,
+            "name": "AlreadyClaimed",
+            "msg": "this attendee has already claimed the rewards"
+        },
+        {
+            "code": 6010,
+            "name": "NumericalOverflow",
+            "msg": "Numerical Overflow"
+        },
+        {
+            "code": 6011,
+            "name": "EventCancelled",
+            "msg": "Event is cancelled"
+        },
+        {
+            "code": 6012,
+            "name": "InvalidTicket",
+            "msg": "Invalid Ticket"
+        },
+        {
+            "code": 6013,
+            "name": "InvalidCollection",
+            "msg": "Invalid Collection"
+        },
+        {
+            "code": 6014,
+            "name": "NoRewardMint",
+            "msg": "This event has no reward mint"
+        },
+        {
+            "code": 6015,
+            "name": "InvalidMint",
+            "msg": "The mint account provided does not match the one in the event"
+        },
+        {
+            "code": 6016,
+            "name": "AlreadyWithdrawn",
+            "msg": "You have already withdrawn the funds"
+        },
+        {
+            "code": 6017,
+            "name": "ConversionError",
+            "msg": "Conversion error"
+        },
+        {
+            "code": 6018,
+            "name": "InvalidTicketState",
+            "msg": "Invalid Ticket State"
+        },
+        {
+            "code": 6019,
+            "name": "InvalidApproversCount",
+            "msg": "Approvers Count can't be more than 3"
+        },
+        {
+            "code": 6020,
+            "name": "UnauthorizedApprover",
+            "msg": "This approver is not authorized to verify"
+        }
+    ],
+    "types": [
+        {
+            "name": "Community",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "seed",
+                        "type": "pubkey"
+                    },
+                    {
+                        "name": "authority",
+                        "type": "pubkey"
+                    },
+                    {
+                        "name": "events_count",
+                        "type": "u32"
+                    },
+                    {
+                        "name": "bump",
+                        "type": {
+                            "array": ["u8", 1]
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "uri",
+                        "type": "string"
+                    },
+                    {
+                        "name": "approvers",
+                        "type": {
+                            "vec": "pubkey"
+                        }
+                    },
+                    {
+                        "name": "reserved",
+                        "type": {
+                            "array": ["u8", 64]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Config",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "owner",
+                        "type": "pubkey"
+                    },
+                    {
+                        "name": "bump",
+                        "type": {
+                            "array": ["u8", 1]
+                        }
+                    },
+                    {
+                        "name": "reserved",
+                        "type": {
+                            "array": ["u8", 512]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Event",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "community",
+                        "type": "pubkey"
+                    },
+                    {
+                        "name": "reward_mint",
+                        "type": {
+                            "option": "pubkey"
+                        }
+                    },
+                    {
+                        "name": "capacity",
+                        "type": {
+                            "option": "u32"
+                        }
+                    },
+                    {
+                        "name": "nonce",
+                        "type": "u32"
+                    },
+                    {
+                        "name": "commitment_fee",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "reward_per_user",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "event_starts_at",
+                        "type": "i64"
+                    },
+                    {
+                        "name": "event_ends_at",
+                        "type": "i64"
+                    },
+                    {
+                        "name": "registration_starts_at",
+                        "type": {
+                            "option": "i64"
+                        }
+                    },
+                    {
+                        "name": "registration_ends_at",
+                        "type": "i64"
+                    },
+                    {
+                        "name": "is_cancelled",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "bump",
+                        "type": {
+                            "array": ["u8", 2]
+                        }
+                    },
+                    {
+                        "name": "event_type",
+                        "type": {
+                            "defined": {
+                                "name": "EventType"
+                            }
+                        }
+                    },
+                    {
+                        "name": "approver",
+                        "type": {
+                            "option": "pubkey"
+                        }
+                    },
+                    {
+                        "name": "reserved",
+                        "type": {
+                            "array": ["u8", 64]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "EventType",
+            "type": {
+                "kind": "enum",
+                "variants": [
+                    {
+                        "name": "InPerson"
+                    },
+                    {
+                        "name": "Virtual"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "TicketState",
+            "type": {
+                "kind": "enum",
+                "variants": [
+                    {
+                        "name": "Pending"
+                    },
+                    {
+                        "name": "Rejected"
+                    },
+                    {
+                        "name": "Approved"
+                    },
+                    {
+                        "name": "Claimed"
+                    },
+                    {
+                        "name": "Declined"
+                    }
+                ]
+            }
+        }
+    ]
+}
