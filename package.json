@@ -1,6 +1,6 @@
 {
   "name": "fosho-sdk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Fosho SDK for interacting with the Fosho Solana program",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,12 +23,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@solana/web3.js": "^1.98.2",
     "typescript": "^5.8.3"
-  },
-  "peerDependencies": {
-    "@coral-xyz/anchor": "^0.29.0",
-    "@solana/web3.js": "^1.95.0"
   },
   "repository": {
     "type": "git",
@@ -37,5 +32,9 @@
   "bugs": {
     "url": "https://github.com/your-username/fosho-sdk/issues"
   },
-  "homepage": "https://github.com/your-username/fosho-sdk#readme"
+  "homepage": "https://github.com/your-username/fosho-sdk#readme",
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.31.1",
+    "@solana/web3.js": "^1.98.2"
+  }
 }
