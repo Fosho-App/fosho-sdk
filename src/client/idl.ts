@@ -5,7 +5,7 @@
  * IDL can be found at `target/idl/fosho_program.json`.
  */
 export type FoshoProgram = {
-  "address": "3disS3DbsgoLYWnCEUesoVdKQUaMF7EHsQ3m4L8nrhPw",
+  "address": "FoshoQ1XrcaP9bsLAhek4hQQCy4MC1SbDrnyDLcW7bsM",
   "metadata": {
     "name": "foshoProgram",
     "version": "0.1.0",

@@ -1,0 +1,27 @@
+# Source files
+src/
+tsconfig.json
+
+# Development files
+.gitignore
+*.log
+.env*
+
+# Test files
+test/
+tests/
+*.test.*
+*.spec.*
+
+# Documentation that shouldn't be in package
+docs/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

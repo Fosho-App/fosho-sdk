@@ -81,7 +81,7 @@ This SDK is generated from the Fosho Anchor IDL and provides typed interfaces fo
 
 ## Program Address
 
-The Fosho program is deployed at: `3disS3DbsgoLYWnCEUesoVdKQUaMF7EHsQ3m4L8nrhPw`
+The Fosho program is deployed at: `FoshoQ1XrcaP9bsLAhek4hQQCy4MC1SbDrnyDLcW7bsM`
 
 ## Requirements
 

@@ -28,4 +28,4 @@ export {
 } from './utils';
 
 // Export program address
-export const FOSHO_PROGRAM_ID = "3disS3DbsgoLYWnCEUesoVdKQUaMF7EHsQ3m4L8nrhPw";
+export const FOSHO_PROGRAM_ID = "FoshoQ1XrcaP9bsLAhek4hQQCy4MC1SbDrnyDLcW7bsM";

@@ -4,7 +4,7 @@ import type { FoshoProgram } from './idl';
 // Since we can't directly import JSON with strict TypeScript,
 // we'll re-export the IDL structure as a constant
 export const IDL_JSON: FoshoProgram = {
-  "address": "3disS3DbsgoLYWnCEUesoVdKQUaMF7EHsQ3m4L8nrhPw",
+  "address": "FoshoQ1XrcaP9bsLAhek4hQQCy4MC1SbDrnyDLcW7bsM",
   "metadata": {
     "name": "foshoProgram",
     "version": "0.1.0",
