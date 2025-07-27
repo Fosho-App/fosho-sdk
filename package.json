@@ -1,6 +1,6 @@
 {
   "name": "fosho-sdk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Fosho SDK for interacting with the Fosho Solana program",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

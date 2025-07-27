@@ -39,3 +39,6 @@ export function createFoshoClient(connection: Connection): Program<FoshoProgram>
   const provider = new AnchorProvider(connection, {} as Wallet, {});
   return new Program<FoshoProgram>(FOSHO_PROGRAM_ID, provider);
 }
+
+// Export Anchor types
+export type { AnchorProvider, Program, Wallet };
